@@ -15,7 +15,8 @@ $urlParams = $generator->generateUrlParams();
 -$view->params['breadcrumbs'][] = ['label' => <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, 'url' => ['index']]<?= "\n" ?>
 -$view->params['breadcrumbs'][] = $view->title<?= "\n" ?>
 .<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-view
-  h1 !=Html::encode($view->title)
+  h1
+    !=Html::encode($view->title)
   p
     !=Html::a(<?= $generator->generateString('Update') ?>, ['update', <?= $urlParams ?>], ['class' => 'btn btn-primary'])
     !=Html::a(<?= $generator->generateString('Delete') ?>, ['delete', <?= $urlParams ?>], ['class' => 'btn btn-danger','data' => ['confirm' => <?= $generator->generateString('Are you sure you want to delete this item?') ?>,'method' => 'post',],])
@@ -32,7 +33,6 @@ if (($tableSchema = $generator->getTableSchema()) === false) {
         $format = $generator->generateColumnFormat($column);
         echo "    '" . $column->name . ($format === 'text' ? "" : ":" . $format) . "',\n";
     }
-}
-?>]
+}?><?="    ]"?>
 
-  !=DetailView::widget(['model' => $model,'attributes' => $attributes ]])
+  !=DetailView::widget(['model' => $model,'attributes' => $attributes ])

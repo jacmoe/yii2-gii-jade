@@ -11,6 +11,7 @@ use yii\helpers\StringHelper;
 -$view->params['breadcrumbs'][] = ['label' => <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, 'url' => ['index']]<?= "\n" ?>
 -$view->params['breadcrumbs'][] = $view->title<?= "\n" ?>
 .<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-create
-  h1<?= " !=" ?>Html::encode($view->title)
+  h1
+    <?= "!=" ?>Html::encode($view->title)
 
-  <?= " !=" ?>$view->render('_form.jade', ['model' => $model,])
+  <?= "!=" ?>$view->render('_form.jade', ['model' => $model,])

@@ -45,6 +45,8 @@ use yii\filters\VerbFilter;
  */
 class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->baseControllerClass) . "\n" ?>
 {
+    public $layout = 'main.jade';
+
     public function behaviors()
     {
         return [

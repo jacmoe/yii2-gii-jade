@@ -14,7 +14,8 @@ $nameAttribute = $generator->getNameAttribute();
 -$view->title = <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?><?= "\n" ?>
 -$view->params['breadcrumbs'][] = $view->title<?= "\n" ?>
 .<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-index
-  h1<?= " !=" ?>Html::encode($view->title)
+  h1
+    <?= "!=" ?>Html::encode($view->title)
 <?php if(!empty($generator->searchModelClass)): ?>
 <?= "  ". ($generator->indexWidgetType === 'grid' ? "//-!= " : "!=") ?>-$view->render('_search', ['model' => $searchModel]) ?>
 <?php endif; ?>
@@ -51,7 +52,7 @@ if (($tableSchema = $generator->getTableSchema()) === false) {
     ['class' => 'yii\grid\ActionColumn'],
     ]
 
-  <?= "!=" ?>GridView::widget(['dataProvider' => $dataProvider, <?= !empty($generator->searchModelClass) ? "'filterModel' => \$searchModel,"; ?> $columns ])
+  <?= "!=" ?>GridView::widget(['dataProvider' => $dataProvider, <?= !empty($generator->searchModelClass) ? "'filterModel' => \$searchModel," : ""?> 'columns' => $columns ])
 
 <?php else: ?>
   <?= "!=" ?>ListView::widget(['dataProvider' => $dataProvider,'itemOptions' => ['class' => 'item'],'itemView' => function ($model, $key, $index, $widget) {return Html::a(Html::encode($model-><?= $nameAttribute ?>), ['view', <?= $urlParams ?>])},])
