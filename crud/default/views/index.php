@@ -17,7 +17,7 @@ $nameAttribute = $generator->getNameAttribute();
   h1
     <?= "!=" ?>Html::encode($view->title)
 <?php if(!empty($generator->searchModelClass)): ?>
-<?= "  ". ($generator->indexWidgetType === 'grid' ? "//-!= " : "!=") ?>//-$view->render('_search.jade', ['model' => $searchModel])
+<?= "  ". ($generator->indexWidgetType === 'grid' ? "//-!= " : "!=") ?>$view->render('_search.jade', ['model' => $searchModel])
 <?php endif; ?>
 
   p

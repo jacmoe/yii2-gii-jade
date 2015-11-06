@@ -45,6 +45,12 @@ class <?= $searchModelClass ?> extends <?= isset($modelAlias) ? $modelAlias : $m
         ];
     }
 
+    public static function tableName()
+    {
+        $parent = get_parent_class();
+        return $parent::tableName();
+    }
+
     /**
      * @inheritdoc
      */
