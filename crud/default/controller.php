@@ -67,7 +67,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         $searchModel = new <?= isset($searchModelAlias) ? $searchModelAlias : $searchModelClass ?>();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
+        return $this->render('index.jade', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -76,7 +76,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
             'query' => <?= $modelClass ?>::find(),
         ]);
 
-        return $this->render('index', [
+        return $this->render('index.jade', [
             'dataProvider' => $dataProvider,
         ]);
 <?php endif; ?>
@@ -89,7 +89,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
      */
     public function actionView(<?= $actionParams ?>)
     {
-        return $this->render('view', [
+        return $this->render('view.jade', [
             'model' => $this->findModel(<?= $actionParams ?>),
         ]);
     }
@@ -104,9 +104,9 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         $model = new <?= $modelClass ?>();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', <?= $urlParams ?>]);
+            return $this->redirect(['view.jade', <?= $urlParams ?>]);
         } else {
-            return $this->render('create', [
+            return $this->render('create.jade', [
                 'model' => $model,
             ]);
         }
@@ -123,9 +123,9 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         $model = $this->findModel(<?= $actionParams ?>);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', <?= $urlParams ?>]);
+            return $this->redirect(['view.jade', <?= $urlParams ?>]);
         } else {
-            return $this->render('update', [
+            return $this->render('update.jade', [
                 'model' => $model,
             ]);
         }
@@ -141,7 +141,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
     {
         $this->findModel(<?= $actionParams ?>)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['index.jade']);
     }
 
     /**
