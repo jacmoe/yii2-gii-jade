@@ -44,7 +44,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getName()
     {
-        return 'CRUD Generator';
+        return 'Jade CRUD Generator';
     }
 
     /**
@@ -52,7 +52,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getDescription()
     {
-        return 'This generator generates a controller and views that implement CRUD (Create, Read, Update, Delete)
+        return 'This generator generates a controller and Jade views that implement CRUD (Create, Read, Update, Delete)
             operations for the specified data model.';
     }
 
