@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\gii\generators\crud;
+namespace jacmoe\giijade\crud;
 
 use Yii;
 use yii\db\ActiveRecord;
