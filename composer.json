@@ -1,0 +1,14 @@
+{
+    "name": "jacmoe/yii2-gii-jade",
+    "description": "Jade Gii Generator for Yii2",
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jacmoe",
+            "email": "jacmoe.dk@gmail.com",
+            "homepage": "http://jacmoe.dk"
+        }
+    ],
+    "require": {}
+}
