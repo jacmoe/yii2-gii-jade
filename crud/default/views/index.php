@@ -9,14 +9,14 @@ use yii\helpers\StringHelper;
 $urlParams = $generator->generateUrlParams();
 $nameAttribute = $generator->getNameAttribute();
 ?>
--use yii\helpers\Html
--use <?= $generator->indexWidgetType === 'grid' ? "yii\\grid\\GridView" : "yii\\widgets\\ListView" ?>
--$view->title = <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>
--$view->params['breadcrumbs'][] = $view->title
+-use yii\helpers\Html<?= "\n" ?>
+-use <?= $generator->indexWidgetType === 'grid' ? "yii\\grid\\GridView" : "yii\\widgets\\ListView" ?><?= "\n" ?>
+-$view->title = <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?><?= "\n" ?>
+-$view->params['breadcrumbs'][] = $view->title<?= "\n" ?>
 .<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-index
   h1<?= " !=" ?>Html::encode($view->title)
 <?php if(!empty($generator->searchModelClass)): ?>
-<?= "  !=" . ($generator->indexWidgetType === 'grid' ? "// " : "") ?>echo $view->render('_search', ['model' => $searchModel]) ?>
+<?= "  ". ($generator->indexWidgetType === 'grid' ? "//-!= " : "!=") ?>-$view->render('_search', ['model' => $searchModel]) ?>
 <?php endif; ?>
 
   p
@@ -26,6 +26,7 @@ $nameAttribute = $generator->getNameAttribute();
 
   -
     $columns = [
+    ['class' => 'yii\grid\SerialColumn'],
 <?php
 $count = 0;
 if (($tableSchema = $generator->getTableSchema()) === false) {
@@ -47,8 +48,10 @@ if (($tableSchema = $generator->getTableSchema()) === false) {
     }
 }
 ?>
+    ['class' => 'yii\grid\ActionColumn'],
     ]
-  <?= "!=" ?>GridView::widget(['dataProvider' => $dataProvider, <?= !empty($generator->searchModelClass) ? "'filterModel' => \$searchModel, 'columns' => [" : "'columns' => ["; ?> ['class' => 'yii\grid\SerialColumn'], $columns, ['class' => 'yii\grid\ActionColumn'],],])
+
+  <?= "!=" ?>GridView::widget(['dataProvider' => $dataProvider, <?= !empty($generator->searchModelClass) ? "'filterModel' => \$searchModel,"; ?> $columns ])
 
 <?php else: ?>
   <?= "!=" ?>ListView::widget(['dataProvider' => $dataProvider,'itemOptions' => ['class' => 'item'],'itemView' => function ($model, $key, $index, $widget) {return Html::a(Html::encode($model-><?= $nameAttribute ?>), ['view', <?= $urlParams ?>])},])
