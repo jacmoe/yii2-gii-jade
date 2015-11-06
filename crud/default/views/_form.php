@@ -13,8 +13,8 @@ if (empty($safeAttributes)) {
     $safeAttributes = $model->attributes();
 }
 ?>
--use yii\helpers\Html
--use yii\widgets\ActiveForm
+-use yii\helpers\Html<?= "\n" ?>
+-use yii\widgets\ActiveForm<?= "\n" ?>
 .<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-form
 
   -$form = ActiveForm::begin();

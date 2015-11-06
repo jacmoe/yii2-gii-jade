@@ -6,9 +6,9 @@ use yii\helpers\StringHelper;
 /* @var $this yii\web\View */
 /* @var $generator yii\gii\generators\crud\Generator */
 ?>
--use yii\helpers\Html
--use yii\widgets\ActiveForm
-."<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-search
+-use yii\helpers\Html<?= "\n" ?>
+-use yii\widgets\ActiveForm<?= "\n" ?>
+.<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-search
   -$form = ActiveForm::begin(['action' => ['index'],'method' => 'get',])
 <?php
 $count = 0;

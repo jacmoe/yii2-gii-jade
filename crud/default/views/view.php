@@ -9,12 +9,11 @@ use yii\helpers\StringHelper;
 $urlParams = $generator->generateUrlParams();
 
 ?>
--use yii\helpers\Html
--use yii\widgets\DetailView
-
--$view->title = $model-><?= $generator->getNameAttribute() ?>
--$view->params['breadcrumbs'][] = ['label' => <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, 'url' => ['index']]
--$view->params['breadcrumbs'][] = $view->title
+-use yii\helpers\Html<?= "\n" ?>
+-use yii\widgets\DetailView<?= "\n" ?>
+-$view->title = $model-><?= $generator->getNameAttribute() ?><?= "\n" ?>
+-$view->params['breadcrumbs'][] = ['label' => <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, 'url' => ['index']]<?= "\n" ?>
+-$view->params['breadcrumbs'][] = $view->title<?= "\n" ?>
 .<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-view
   h1 !=Html::encode($view->title)
   p

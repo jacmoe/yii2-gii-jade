@@ -8,11 +8,11 @@ use yii\helpers\StringHelper;
 
 $urlParams = $generator->generateUrlParams();
 ?>
--use yii\helpers\Html
-$view->title = <?= $generator->generateString('Update {modelClass}: ', ['modelClass' => Inflector::camel2words(StringHelper::basename($generator->modelClass))]) ?> . ' ' . $model-><?= $generator->getNameAttribute() ?>
-$view->params['breadcrumbs'][] = ['label' => <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, 'url' => ['index']]
-$view->params['breadcrumbs'][] = ['label' => $model-><?= $generator->getNameAttribute() ?>, 'url' => ['view', <?= $urlParams ?>]]
-$view->params['breadcrumbs'][] = <?= $generator->generateString('Update') ?>;
+-use yii\helpers\Html<?= "\n" ?>
+$view->title = <?= $generator->generateString('Update {modelClass}: ', ['modelClass' => Inflector::camel2words(StringHelper::basename($generator->modelClass))]) ?> . ' ' . $model-><?= $generator->getNameAttribute() ?><?= "\n" ?>
+$view->params['breadcrumbs'][] = ['label' => <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, 'url' => ['index']]<?= "\n" ?>
+$view->params['breadcrumbs'][] = ['label' => $model-><?= $generator->getNameAttribute() ?>, 'url' => ['view', <?= $urlParams ?>]]<?= "\n" ?>
+$view->params['breadcrumbs'][] = <?= $generator->generateString('Update') ?>;<?= "\n" ?>
 .<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-update
-  h1<?= " !=" ?>Html::encode($view->title)
-  <?= " !=" ?>$view->render('_form.jade', ['model' => $model,])
+  h1<?= "!=" ?>Html::encode($view->title)
+  <?= "!=" ?>$view->render('_form.jade', ['model' => $model,])
