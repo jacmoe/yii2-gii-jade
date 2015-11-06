@@ -16,7 +16,7 @@ $nameAttribute = $generator->getNameAttribute();
 .<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-index
   h1<?= " !=" ?>Html::encode($view->title)
 <?php if(!empty($generator->searchModelClass)): ?>
-<?= "    <?php " . ($generator->indexWidgetType === 'grid' ? "// " : "") ?>echo $view->render('_search', ['model' => $searchModel]); ?>
+<?= "  !=" . ($generator->indexWidgetType === 'grid' ? "// " : "") ?>echo $view->render('_search', ['model' => $searchModel]) ?>
 <?php endif; ?>
 
   p
