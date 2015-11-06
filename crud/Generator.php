@@ -166,11 +166,12 @@ class Generator extends \yii\gii\Generator
         $viewPath = $this->getViewPath();
         $templatePath = $this->getTemplatePath() . '/views';
         foreach (scandir($templatePath) as $file) {
-            if (empty($this->searchModelClass) && $file === '_search.php') {
+            if (empty($this->searchModelClass) && $file === '_search.jade') {
                 continue;
             }
             if (is_file($templatePath . '/' . $file) && pathinfo($file, PATHINFO_EXTENSION) === 'php') {
-                $files[] = new CodeFile("$viewPath/$file", $this->render("views/$file"));
+                $tfile=str_replace('.php','.jade',$file);
+                $files[] = new CodeFile("$viewPath/$tfile", $this->render("views/$file"));
             }
         }
 
