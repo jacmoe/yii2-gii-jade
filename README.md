@@ -1,6 +1,6 @@
 ## Jade Gii Generator for Yii2
 
-[![Latest Stable Version](https://poser.pugx.org/phpunit/phpunit/version)](https://packagist.org/packages/jacmoe/yii2-gii-jade)
+[![Latest Stable Version](https://packagist.org/packages/jacmoe/yii2-gii-jade)](https://packagist.org/packages/jacmoe/yii2-gii-jade)
 
 
 Works well with [Yii2 Tale Jade](https://bitbucket.org/jacmoe/yii2-tale-jade), the Tale Jade for PHP integration for the Yii2 framework.
