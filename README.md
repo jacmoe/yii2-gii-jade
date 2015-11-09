@@ -14,7 +14,9 @@ composer require jacmoe/yii2-gii-jade "*"
 ## Configuration
 Add it to your configuration (frontend/config/main-local.php and/or backend/config/main-local.php for the advanced template).
 
-~~~php
+### Add the generator
+
+```php
 if (!YII_ENV_TEST) {
   // configuration adjustments for 'dev' environment
   $config['bootstrap'][] = 'debug';
@@ -34,7 +36,30 @@ if (!YII_ENV_TEST) {
     ],
   ];
 }
-~~~
+```
+
+### Set defaultExtension
+```php
+'components' => [
+    ...
+    ],
+    'view' => [
+        'defaultExtension' => 'jade',
+    ...
+```
+
+Alternatively, if you don't want to set the default extension for the views, then you need to explicitly set the extension in your views/controllers.
+
+For instance:
+
+```php
+public function actionAbout()
+{
+    return $this->render('about.jade');
+}
+...
+$this->render('_form.jade', ['model' => $model,])
+```
 
 ## License
 The Jade Gii Generator for Yii2 is released under the MIT license.
