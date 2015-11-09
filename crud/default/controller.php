@@ -45,8 +45,6 @@ use yii\filters\VerbFilter;
  */
 class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->baseControllerClass) . "\n" ?>
 {
-    public $layout = 'main.jade';
-
     public function behaviors()
     {
         return [
@@ -69,7 +67,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         $searchModel = new <?= isset($searchModelAlias) ? $searchModelAlias : $searchModelClass ?>();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index.jade', [
+        return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -78,7 +76,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
             'query' => <?= $modelClass ?>::find(),
         ]);
 
-        return $this->render('index.jade', [
+        return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
 <?php endif; ?>
@@ -91,7 +89,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
      */
     public function actionView(<?= $actionParams ?>)
     {
-        return $this->render('view.jade', [
+        return $this->render('view', [
             'model' => $this->findModel(<?= $actionParams ?>),
         ]);
     }
@@ -106,9 +104,9 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         $model = new <?= $modelClass ?>();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view.jade', <?= $urlParams ?>]);
+            return $this->redirect(['view', <?= $urlParams ?>]);
         } else {
-            return $this->render('create.jade', [
+            return $this->render('create', [
                 'model' => $model,
             ]);
         }
@@ -125,9 +123,9 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         $model = $this->findModel(<?= $actionParams ?>);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view.jade', <?= $urlParams ?>]);
+            return $this->redirect(['view', <?= $urlParams ?>]);
         } else {
-            return $this->render('update.jade', [
+            return $this->render('update', [
                 'model' => $model,
             ]);
         }
@@ -143,7 +141,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
     {
         $this->findModel(<?= $actionParams ?>)->delete();
 
-        return $this->redirect(['index.jade']);
+        return $this->redirect(['index']);
     }
 
     /**

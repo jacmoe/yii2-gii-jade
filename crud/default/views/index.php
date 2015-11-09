@@ -17,7 +17,7 @@ $nameAttribute = $generator->getNameAttribute();
   h1
     <?= "!=" ?>Html::encode($view->title)
 <?php if(!empty($generator->searchModelClass)): ?>
-<?= "  ". ($generator->indexWidgetType === 'grid' ? "//-!= " : "!=") ?>$view->render('_search.jade', ['model' => $searchModel])
+<?= "  ". ($generator->indexWidgetType === 'grid' ? "//-!= " : "!=") ?>-$view->render('_search', ['model' => $searchModel]) ?>
 <?php endif; ?>
 
   p
@@ -55,5 +55,5 @@ if (($tableSchema = $generator->getTableSchema()) === false) {
   <?= "!=" ?>GridView::widget(['dataProvider' => $dataProvider, <?= !empty($generator->searchModelClass) ? "'filterModel' => \$searchModel," : ""?> 'columns' => $columns ])
 
 <?php else: ?>
-  <?= "!=" ?>ListView::widget(['dataProvider' => $dataProvider,'itemOptions' => ['class' => 'item'],'itemView' => function ($model, $key, $index, $widget) {return Html::a(Html::encode($model-><?= $nameAttribute ?>), ['view', <?= $urlParams ?>]);},])
+  <?= "!=" ?>ListView::widget(['dataProvider' => $dataProvider,'itemOptions' => ['class' => 'item'],'itemView' => '_view'])
 <?php endif; ?>

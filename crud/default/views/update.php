@@ -16,4 +16,4 @@ $urlParams = $generator->generateUrlParams();
 .<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-update
   h1
     <?= "!=" ?>Html::encode($view->title)
-  <?= "!=" ?>$view->render('_form.jade', ['model' => $model,])
+  <?= "!=" ?>$view->render('_form', ['model' => $model,])
