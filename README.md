@@ -61,5 +61,17 @@ public function actionAbout()
 $this->render('_form.jade', ['model' => $model,])
 ```
 
+## Known Bugs
+When the i18n option is turned on for the generator, there will be an error in *update.jade* that looks like this:
+```php
+-$view->title = Yii::t('app', 'Update {modelClass}: ', [
+    'modelClass' => 'User',
+]) . ' ' . $model->id
+```
+You need to remove the line breaks, like this:
+```php
+-$view->title = Yii::t('app', 'Update {modelClass}: ', ['modelClass' => 'User',]) . ' ' . $model->id
+```
+
 ## License
 The Jade Gii Generator for Yii2 is released under the MIT license.
