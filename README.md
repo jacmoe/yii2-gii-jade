@@ -2,7 +2,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/jacmoe/yii2-gii-jade/v/stable)](https://packagist.org/packages/jacmoe/yii2-gii-jade) [![Total Downloads](https://poser.pugx.org/jacmoe/yii2-gii-jade/downloads)](https://packagist.org/packages/jacmoe/yii2-gii-jade) [![Latest Unstable Version](https://poser.pugx.org/jacmoe/yii2-gii-jade/v/unstable)](https://packagist.org/packages/jacmoe/yii2-gii-jade) [![License](https://poser.pugx.org/jacmoe/yii2-gii-jade/license)](https://packagist.org/packages/jacmoe/yii2-gii-jade)
 
-Works well with [Yii2 Tale Jade](https://bitbucket.org/jacmoe/yii2-tale-jade), the Tale Jade for PHP integration for the Yii2 framework.
+Works well with [Yii2 Tale Jade](https://packagist.org/packages/jacmoe/yii2-tale-jade), the Tale Jade for PHP integration for the Yii2 framework.
 
 ## Installation with Composer
 
